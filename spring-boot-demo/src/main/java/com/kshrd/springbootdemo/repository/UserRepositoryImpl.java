@@ -17,7 +17,7 @@ public class UserRepositoryImpl implements UserRepository {
 		Faker faker = new Faker();
 		for (int i = 0; i < 10; i++) {
 			String name = faker.name().fullName();
-			String image = "/assets/image/cat" + (i%5 + 1) + ".jpg";
+			String image = "/assets/image/cat" + (i%5 + 1) + ".jpg" ;
 			User user = new User(i + 1, name, (i > 5) ? "M" : "F", image);
 			users.add(user);
 		}
