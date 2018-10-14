@@ -18,10 +18,8 @@ import com.kshrd.springbootdemo.service.UserService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootDemoApplicationTests {
-
 	@Autowired
 	private UserService userService;
-
 	
 	@Test
 	public void testUserNameNull() {
@@ -47,8 +45,6 @@ public class SpringBootDemoApplicationTests {
 			assertTrue("Gender should be M or F. User Name[" + user.getName() + "] Gender: [" +user.getGender() +"]", 
 					user.getGender().equals("M")  || user.getGender().equals("F")  );
 		}
-	}	
-	
-//	assertEquals(323.45, account.get잔액(), 0.00001);
+	}
 
 }
