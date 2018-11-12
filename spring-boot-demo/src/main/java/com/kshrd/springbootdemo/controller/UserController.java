@@ -109,4 +109,20 @@ public class UserController {
 		return "redirect:/user";
 	}
 	
+	@GetMapping("/users") // = @RequestMapping(value = "/user")
+	public @ResponseBody List<User> userAll(Model model){
+		System.out.println("/users");
+		List<User> users = userService.findAllUsers();
+		System.out.println(users);
+		return users;
+	}
+	
+	@GetMapping("/users/{id}") //@RequestMapping(value="/user/{id}")
+	public @ResponseBody User usersDetail(@PathVariable("id") Integer id, Model model){
+		System.out.println("/users/{id}");
+		User user = userService.searchById(id);
+		System.out.println(user);
+		return user;
+	}
+	
 }
