@@ -124,3 +124,8 @@ else
 fi
 ```
 
+## you can see the operating this
+HA proxy : http://35.233.240.59:8180/
+Blue : http://35.233.240.59:8181/
+Green : http://35.233.240.59:8182/
+
