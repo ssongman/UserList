@@ -125,7 +125,11 @@ fi
 ```
 
 ## you can see the operating this
-HA proxy : http://35.233.240.59:8180/
-Blue : http://35.233.240.59:8181/
-Green : http://35.233.240.59:8182/
+
+this is Blue Green Architecture.
+![Blue Green Architecture](https://github.com/ssongman/UserList/blob/master/BG_using_haproxy.png?raw=true)
+
+- HA proxy : http://35.233.240.59:8180/
+- Blue : http://35.233.240.59:8181/
+- Green : http://35.233.240.59:8182/
 
