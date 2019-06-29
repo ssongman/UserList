@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple02-svc
+  labels:
+    app: simple02
+spec:
+  selector:
+    app: simple02
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8181

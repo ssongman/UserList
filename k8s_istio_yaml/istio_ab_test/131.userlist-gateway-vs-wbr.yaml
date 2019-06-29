@@ -1,0 +1,49 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: userlist-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "userlist.ipc.kt.com"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: userlist-virtualservice
+spec:
+  hosts:
+  - "userlist.ipc.kt.com"
+  gateways:
+  - userlist-gateway
+  http:
+  - route:
+    - destination:
+        host: userlist-svc
+        subset: v1
+      weight: 70
+    - destination:
+        host: userlist-svc
+        subset: v2
+      weight: 30
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: userlist-destination
+spec:
+  host: userlist-svc
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+---

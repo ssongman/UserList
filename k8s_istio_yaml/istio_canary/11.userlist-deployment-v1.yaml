@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userlist-v1
+  labels:
+    app: simple02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple02
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: simple02
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - name: userlist
+        image: ssongman/userlist:v1
+        ports:
+        - containerPort: 8181
+        #resources:
+          #limits:
+            #cpu: '2'
+            #memory: 1250Mi
+          #requests:
+            #cpu: '2'
+            #memory: 1250Mi

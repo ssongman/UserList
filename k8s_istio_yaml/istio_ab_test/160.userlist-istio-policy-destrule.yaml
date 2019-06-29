@@ -1,0 +1,24 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "userlist-istio-policy"
+spec:
+  targets:
+  - name: userlist-svc            # service
+  peers:
+  - mtls:
+      mode: PERMISSIVE   # accept both mutual TLS and plain text traffic
+      # mode: STRICT     # lock down to only mutual TLS
+---
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "DestinationRule"
+metadata:
+  name: "userlist-svc"
+spec:
+  host: "userlist-svc.dev-song.svc.cluster.local"
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL            # mutual tls
+    loadBalancer:
+      consistentHash:
+        useSourceIp: false          # true: sticky session ,  false: LB
