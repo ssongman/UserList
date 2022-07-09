@@ -21,7 +21,7 @@ spec:
         app: userlist
     spec:
       containers:
-      - image: ktis-bastion01.container.ipc.kt.com:5000/ssongman/userlist:v1
+      - image: docker.io/ssongman/userlist:v1
         name: userlist
         ports:
         - containerPort: 8181
