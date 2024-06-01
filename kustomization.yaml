@@ -1,0 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deploy/11.userlist-deployment.yaml
+  - deploy/12.userlist-svc.yaml
+  #- deploy/15.userlist-ingress.yaml

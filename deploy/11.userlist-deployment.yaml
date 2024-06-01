@@ -14,7 +14,7 @@ spec:
       labels:
         app: userlist
       #annotations:
-        #sidecar.istio.io/inject: "true"
+      #  sidecar.istio.io/inject: "true"
     spec:
       #nodeSelector:
         #node-role.kubernetes.io/infra: "true"
@@ -22,7 +22,7 @@ spec:
         #kubernetes.io/hostname: ktis-node04.container.ipc.kt.com
       containers:
       - name: userlist
-        image: ktis-bastion01.container.ipc.kt.com:5000/ssongman/userlist:v1
+        image: ssongman/userlist:v1
         ports:
         - containerPort: 8181
         #readinessProbe:

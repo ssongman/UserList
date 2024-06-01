@@ -5,8 +5,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "traefik"
 spec:
+  ingressClassName: traefik
   rules:
-  - host: "userlist.song02.ktcloud.com"
+  - host: "userlist.ssongman.duckdns.org"
     http:
       paths:
       - path: /
@@ -15,4 +16,8 @@ spec:
           service:
             name: userlist-svc
             port:
-              number: 8181
+              number: 80
+  #tls:
+  #- hosts:
+  #  - '*.ssongman.duckdns.org'
+  #  secretName: wildcard-cert
